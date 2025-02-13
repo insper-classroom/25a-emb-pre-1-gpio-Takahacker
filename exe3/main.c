@@ -7,9 +7,6 @@ const int LED_PIN_G = 6;
 const int BTN_PIN_R = 28;
 const int BTN_PIN_G = 26;
 
-int i_R = 0;
-int i_G = 0;
-
 int main()
 {
     stdio_init_all();
@@ -28,13 +25,16 @@ int main()
     gpio_pull_up(BTN_PIN_R);
     gpio_pull_up(BTN_PIN_G);
 
+    int i_R = 0;
+    int i_G = 0;
+
     while (true)
     {
         if (!gpio_get(BTN_PIN_R))
         {
             i_R = !i_R;
             gpio_put(LED_PIN_R, i_R);
-            sleep_ms(200);
+            sleep_ms(200);  
         }
 
         if (!gpio_get(BTN_PIN_G))
@@ -42,6 +42,5 @@ int main()
             i_G = !i_G;
             gpio_put(LED_PIN_G, i_G);
             sleep_ms(200); 
-        }
     }
 }
