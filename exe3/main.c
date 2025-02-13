@@ -32,18 +32,18 @@ int main()
     {
         if (!gpio_get(BTN_PIN_R))
         {
-            while (!gpio_get(BTN_PIN_R))
-                ;
             i_R = !i_R;
             gpio_put(LED_PIN_R, i_R);
+            while (!gpio_get(BTN_PIN_R)){
+            }
         }
 
         if (!gpio_get(BTN_PIN_G))
         {
-            while (!gpio_get(BTN_PIN_G))
-                ;
             i_G = !i_G;
             gpio_put(LED_PIN_G, i_G);
+            while (!gpio_get(BTN_PIN_R)){
+            }
         }
     }
 }
